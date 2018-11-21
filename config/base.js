@@ -21,6 +21,7 @@ export default [{
     data: {
         'status': 'S',
         'data|8-10': [{
+            'index|+1': 1,
             'name': '@cname',
             'id': '@id',
             'loginTime': '@datetime'
