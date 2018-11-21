@@ -16,6 +16,6 @@ export default [
         url: '',
         name: '测试String的数据',
         type: 'string',
-        data: 'hello world'
+        data: 'Hello world，Mock服务正在运行！'
     }
 ]

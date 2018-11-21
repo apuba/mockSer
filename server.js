@@ -6,6 +6,7 @@ let routers = [...base,...test]
 let express = require('express'); //引入express模块
 let Mock = require('mockjs'); //引入mock模块
 let app = express(); //实例化express
+let port = 4000 ; // 监听的端口
  
 /**
  * 配置test
@@ -27,6 +28,6 @@ routers.map(item => {
     });
 })
 /**
- * 监听4000端口
+ * 监听4000 端口
  */
-app.listen('4000');
+app.listen(port,() => console.log('mock服务启动成功，可点击链接查看：', 'http://localhost:'+port));
