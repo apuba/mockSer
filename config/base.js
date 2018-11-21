@@ -1,17 +1,29 @@
 /* 基础模块 
-*
-**/
- 
-export default  [{
+ *
+ **/
+
+export default [{
     url: 'login',
     name: '登录页面的接口',
     type: 'mock',
     data: {
         "status": 'S',
         "data": [{
-           'name': '@cname',
-           'id': '@index',
-           'loginTime': '@datetime'
+            'name': '@cname',
+            'id': '@id',
+            'loginTime': '@datetime'
+        }]
+    }
+}, {
+    url: 'users',
+    name: '用户列表',
+    type: 'mock',
+    data: {
+        'status': 'S',
+        'data|8-10': [{
+            'name': '@cname',
+            'id': '@id',
+            'loginTime': '@datetime'
         }]
     }
 }]

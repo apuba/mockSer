@@ -13,7 +13,7 @@ export default [
         }
     },
     {
-        url: 'test',
+        url: '',
         name: '测试String的数据',
         type: 'string',
         data: 'hello world'
