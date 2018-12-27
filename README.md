@@ -7,7 +7,7 @@ mock 参考　http://mockjs.com/examples.html <br />
 运行 npm run start 即可启动服务 <br />
 运行 npm run dev 即可启动开发模式服务 <br />
 
-<p> 路由配置:
+<p> 路由参数说明:
   </p>
 <pre>
 
@@ -21,7 +21,7 @@ mock 参考　http://mockjs.com/examples.html <br />
 
 </pre>
 
-<p>路由实例</p>
+<p>路由示例：</p>
 
 <pre>
 {
@@ -39,7 +39,7 @@ mock 参考　http://mockjs.com/examples.html <br />
 }
 </pre>
 
-<p>返回格式</p>
+<p>返回格式：</p>
 <pre>
 {
     "mock":true,
