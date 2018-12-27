@@ -13,7 +13,7 @@ let html = '<!DOCTYPE html>' +
 html = html + '<div id="mockSer_doc">';
 config.map(item => {
   html = html + '<article>'
-  // html = html + '<h3 style="margin-bottom:0px;">' + (item.model||'') + '</h3>';
+  // html = html + '<h3 style="margin-bottom:0px;">' + (item.module||'') + '</h3>';
   html = html + '<section style="padding:20px;">'
   html = html + '<h4 style="margin:0 0 10px 0;">' + item.name + '</h4>';
   html = html + '<a target="_blank" href="' + item.router+'"><span>' + item.router + '</span></a>';

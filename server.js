@@ -51,13 +51,22 @@ routers.map(item => {
                 break;
             case 'mock':
                 // res.json(Mock.mock(item.data));
-                res.json(Mock.mock({
-                    'status': 'S',
-                    'msg': '操作成功',
-                    'remak': item.name + ' 此数据为Mock测试数据，请注意切换！',
-                    'count': '@integer(20, 200)',
-                    'data|10': item.data
-                }))
+
+                let route ={
+                    mock:true,
+                    status: 'S',
+                    msg: '操作成功',
+                    remak: item.name + ' 此数据为Mock测试数据，请注意切换！',
+                    count: '@integer(20, 200)'                     
+                } ;
+
+                if (typeof obj === 'object' && Array == obj.constructor) {
+                    route['data|10']= item.data
+                } else {
+                    route['data']= item.data
+                }
+
+                res.json(Mock.mock(route));
                 break;
         }
     });

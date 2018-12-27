@@ -1,0 +1,9 @@
+//　正则表达式配置
+export const REGEX = {
+  MOBILE: /^1[3857][1-9]\d{8}/
+}
+
+// 模块名称
+export const MODULE_NAME = {
+  STORE:'订单管理模块'
+}
