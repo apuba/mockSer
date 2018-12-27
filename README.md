@@ -27,7 +27,7 @@ mock 参考　http://mockjs.com/examples.html <br />
     "mock":true,
     "status":"S",
     "msg":"操作成功",
-    "remak":"测试mock的数据 此数据为Mock测试数据，请注意切换！",
+    "remark":"测试mock的数据 此数据为Mock测试数据，请注意切换！",
     "count":34,
     "data":{
         "name":"夏超",
