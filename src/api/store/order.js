@@ -3,7 +3,7 @@
  **/
 let modelName = '订单管理模块';
 export default [{
-        url: 'storeTrxOrderDeliveryService/findOrderDeliveryPagination',
+        router: 'storeTrxOrderDeliveryService/findOrderDeliveryPagination',
         model: modelName,
         name: '订单管理-发货管理列表',
         type: 'mock',
@@ -31,7 +31,7 @@ export default [{
         }]
     },
     {
-        url: 'storeTrxOrderService/findOrderInfoPagination',
+        router: 'storeTrxOrderService/findOrderInfoPagination',
         model: modelName,
         name: '订单信息',
         type: 'mock',

@@ -1,6 +1,6 @@
 export default [
     {
-        url: 'mock',
+        router: 'mock',
         name: '测试mock的数据',
         type: 'mock',
         data: {
