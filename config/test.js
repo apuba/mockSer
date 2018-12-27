@@ -11,11 +11,5 @@ export default [
                 "value|0-500": 20
             }]
         }
-    },
-    {
-        url: '',
-        name: '测试String的数据',
-        type: 'string',
-        data: 'Hello world，Mock服务正在运行！'
     }
 ]
