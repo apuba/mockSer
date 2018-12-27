@@ -56,7 +56,7 @@ routers.map(item => {
                     mock:true,
                     status: 'S',
                     msg: '操作成功',
-                    remak: item.name + ' 此数据为Mock测试数据，请注意切换！',
+                    remark: item.name + ' 此数据为Mock测试数据，请注意切换！',
                     count: '@integer(20, 200)'                     
                 } ;
 
