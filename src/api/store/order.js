@@ -3,7 +3,7 @@
  **/
 let Mock = require('mockjs'); //引入mock模块
 import * as TYPES from '../types';
-import {MODULE_NAME,REGEX} from '../config';
+import {MODULE_NAME,REGEX} from '../../config';
 
 let moduleName = MODULE_NAME.STORE; // 模块名称
 let Random = Mock.Random;
@@ -62,7 +62,7 @@ export default [{
             "isSalesAfter|1": TYPES.G_YES_OR_NO,
             "orderStatus|1":'@integer(1,6)' +'0',
             "orderStatusMeaning|1":TYPES.G_ORDER_STATUS,
-            "payStatus|1-5":1,
+            "payStatus":'@integer(1,2)'+'0',
             "payStatusMeaning|1":TYPES.G_PAY_STATUS,
             "creationDate":'@date',
             "versionNum":'@integer(20)',
@@ -84,14 +84,14 @@ export default [{
             "paySerialNumber":'@increment(10000)',
             "confirmReceiveTime":'@date',
     
-            "orderDelivery|1-6":[{
+            "orderDelivery":[{
                 "deliveryInfoId":'@integer(10000)',
                 "deliveryType|1": TYPES.G_DELIVERY_TYPE,
                 "isScanCodeDelivery|1":TYPES.G_YES_OR_NO,
                 "deliveryUser":'@cname',
                 "deliveryStoreNo":'@city(ture)',
                 "deliverySupplierNo":'@ctitle(5,10)',
-                "receiveSser":'@cname',
+                "receiveUser":'@cname',
                 "receiveUserPhone":REGEX.MOBILE,
                 "provinceId":'@province',
                 "cityId":'@city',

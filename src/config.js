@@ -1,3 +1,6 @@
+
+let Mock = require('mockjs'); //引入mock模块
+
 //　正则表达式配置
 export const REGEX = {
   MOBILE: /^1[3857][1-9]\d{8}/
