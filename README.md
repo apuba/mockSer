@@ -7,6 +7,8 @@ mock 参考　http://mockjs.com/examples.html <br />
 运行 npm run start 即可启动服务 <br />
 运行 npm run dev 即可启动开发模式服务 <br />
 
+<p>2018-12-29 添加了https 支持，请自行参考 openssl 生成证书，把证书书放到/ssl 目录或自行修改路径</p>
+
 <p> 路由参数说明:
   </p>
 <pre>

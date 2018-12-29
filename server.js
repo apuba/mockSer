@@ -1,13 +1,25 @@
 const fs = require('fs')
 const path = require('path')
+const http = require('http')
+const https = require('https')
+let express = require('express') //引入express模块
+let Mock = require('mockjs') //引入mock模块
+let app = express() //实例化express
+
 import config from './src/api/main' // 引入需要合并的路由配置
 import doc from './src/api/doc'
 let routers = [...config, ...doc]
 
-let express = require('express') //引入express模块
-let Mock = require('mockjs') //引入mock模块
-let app = express() //实例化express
+let privateKey = null
+let certificate = null
+let credentials = null
+
 let port = 4000 // 监听的端口
+let sslPort = 4001 // 监听https 端口
+
+let runHttps = true // 是否要运行https ---------------------------------------------------------------
+const httpServer = http.createServer(app)
+let httpsServer = null
 
 /**
  * 配置test
@@ -71,9 +83,38 @@ routers.map(item => {
   })
 })
 
+httpServer.listen(port, function() {
+  console.log('mock服务启动成功，可点击链接查看：: http://localhost:%s', port)
+})
+
+// 是否运行https ，进行对应的证书文件读取并创建https服务
+if (runHttps) {
+  try {
+    privateKey = fs.readFileSync('ssl/private.pem', 'utf8')
+    certificate = fs.readFileSync('ssl/file.crt', 'utf8')
+    credentials = {
+      key: privateKey,
+      cert: certificate
+    }
+    httpsServer = https.createServer(credentials, app)
+    httpsServer.listen(sslPort, function() {
+      console.log(
+        'mock服务启动成功，可点击链接查看：: https://localhost:%s',
+        sslPort
+      )
+    })
+  } catch (error) {
+    console.log(error);
+  }  
+}
+
 /**
  * 监听4000 端口
  */
-app.listen(port, () =>
+/* app.listen(port, () =>
   console.log('mock服务启动成功，可点击链接查看：', 'http://localhost:' + port)
-)
+) */
+
+/* app.listen(sslPort, () =>
+  console.log('mock服务启动成功，可点击链接查看：', 'http://localhost:' + sslPort)
+) */

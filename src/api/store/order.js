@@ -178,6 +178,27 @@ export default [{
                 "receiveType|1":TYPES.G_TAKE_TYPE
             }]
         }
-    }
-
+    },
+    {
+        router: 'storeTrxOrderService/findWaitDeliveryOrder',
+        module: moduleName,
+        name: '未发货订单列表',
+        type: 'mock',
+        data: [{
+            "orderId":'@integer(10000)',
+            "creationDate":'@date',
+            "orderNum":'@integer(10000)',
+            "orderType|1": TYPES.G_ORDER_TYPE,
+            "transmitType|1": TYPES.G_DELIVERY_TYPE,
+            "orderStatus|1":TYPES.G_ORDER_STATUS,
+            "receiveUser":'@cname',
+            "receiveUserPhone":REGEX.MOBILE,
+            "province":'@province',
+            "city":'@city',
+            "district":'@county',
+            "street":'街道',
+            "address":'@county(true)',
+            "versionNum":'@integer(1,10)'
+        }]
+    },
 ]
