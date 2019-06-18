@@ -2,7 +2,7 @@
  * @Author: houxingzhang 
  * @Date: 2019-06-17 14:09:28 
  * @Last Modified by: houxingzhang
- * @Last Modified time: 2019-06-17 14:41:50
+ * @Last Modified time: 2019-06-19 01:14:02
  */
 
 let Mock = require('mockjs'); //引入mock模块
@@ -23,7 +23,8 @@ for (let i = 0; i < count; i++) {
     addr: Mock.mock('@county(true)'),
     'age|18-60': 1,
     birth: Mock.Random.date(),
-    sex: Mock.Random.integer(0, 1)
+    sex: Mock.Random.integer(0, 1),
+    mobile: REGEX.MOBILE,
   }))
 }
 
@@ -34,8 +35,10 @@ export default [
         module: moduleName,
         name: '获取测试用户列表',
         type: 'mock',
-        data: function () {
-          return List
+        data: function (params) {
+          let list = [].concat(List)
+          let pageIndex = (params.pageIndex -1) *params.pageSize       
+          return list.splice(pageIndex,params.pageSize)
         },
         count: count
     },
@@ -44,8 +47,11 @@ export default [
       module: moduleName,
       name: '添加用户',
       type: 'mock',
-      data: function (params) {
-        return {"message":"添加成功","state":true,"data":params}
+      data: function (params) { 
+        let user = params
+        user.id = Mock.Random.guid()
+        List.unshift(user)
+        return {"message":"添加成功","state":true,"data":user}
       }
   },
 ]

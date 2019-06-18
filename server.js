@@ -38,6 +38,17 @@ app.all('*', function(req, res, next) {
   res.header('Content-Type', 'application/json;charset=utf-8')
   next()
 })
+
+//引入body-parser
+var bodyParser = require('body-parser');  //引入 body-parser 可以获取post的数据
+app.use(express.static('public'));
+
+//需要use的
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({
+    extended: true
+})); // for parsing application/x-www-form-urlencoded
+ 
 // 加载静态资源
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -76,7 +87,12 @@ routers.map(item => {
         if (typeof item.data === 'object' && Array == item.data.constructor) {
           route['data|2-12'] = item.data
         } else if (typeof item.data === 'function') {
-          route['data'] = item.data(req.query)
+          // route['data'] = item.data(req.query)
+          if (req.method === 'POST') {
+            route['data'] = item.data(req.body)
+          } else {
+            route['data'] = item.data(req.query)
+          }
         }
         else {
           route['data'] = item.data

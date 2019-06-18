@@ -16,5 +16,7 @@
     "express": "^4.16.4",
     "mockjs": "^1.0.1-beta3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "body-parser": "^1.19.0"
+  }
 }
