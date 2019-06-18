@@ -44,6 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 routers.map(item => {
   let router = item.router.indexOf('/') === 0 ? item.router : '/' + item.router
   app.all(router, function(req, res) {
+    var fs = require("fs");
+
     switch (item.type || 'mock') {
       case 'html':
         res.writeHead(200, {
@@ -68,12 +70,15 @@ routers.map(item => {
           status: 'S',
           msg: '操作成功',
           remark: item.name + ' 此数据为Mock测试数据，请注意切换！',
-          count: '@integer(20, 200)'
+          count: item.count || '@integer(20, 200)'
         }
 
         if (typeof item.data === 'object' && Array == item.data.constructor) {
           route['data|2-12'] = item.data
-        } else {
+        } else if (typeof item.data === 'function') {
+          route['data'] = item.data(req.query)
+        }
+        else {
           route['data'] = item.data
         }
 

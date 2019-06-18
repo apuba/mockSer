@@ -8,5 +8,7 @@ export const REGEX = {
 
 // 模块名称
 export const MODULE_NAME = {
-  STORE:'订单管理模块'
+  STORE:'订单管理模块',
+  SYSTEM:'系统模块',
+  VUELEARN: 'VUE学习CRUD模块'
 }

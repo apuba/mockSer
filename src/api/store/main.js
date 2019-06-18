@@ -1,7 +1,5 @@
-import order from './order';
-import store from './store';
-import ticket from './ticket'
+import order from './order'
 // 商城
-let routers=[...order,...store,...ticket];
+let routers=[...order]
 
 export default  routers
